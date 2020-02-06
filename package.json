@@ -1,78 +1,73 @@
 {
-  "name": "password-strength-meter",
-  "version": "1.0.2",
+  "name": "@moukail/angular-password-strength-meter",
+  "version": "9.0.1",
+  "private": false,
   "scripts": {
-    "ng": "ng",
-    "serve": "ng serve",
-    "start:dev": "npm-run-all --parallel serve build:lib:watch",
-    "build:app": "ng build password-strength-meter-showcase",
-    "build:app:prod": "npm run build:app -- --prod --output-path docs --base-href password-strength-meter",
-    "build:lib": "ng build password-strength-meter",
-    "build:lib:watch": "npm run build:lib -- --watch",
-    "build:prod": "npm-run-all build:lib build:app:prod",
-    "test": "ng test",
-    "test:lib": "npm run test password-strength-meter",
-    "test:app": "npm run test password-strength-meter-showcase",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "build": "ng-packagr -p ng-package.json",
+    "lint": "tslint 'src/**/*.ts' --fix",
+    "prebuild": "rimraf dist tmp",
+    "reinstall": "rm -rf node_modules && npm install",
+    "release": "npm run reinstall && npm run build && cd dist/angular-password-strength-meter && npm publish --access public && cd ../../"
+  },
+  "dependencies": {
+    "zxcvbn": "^4.4.2",
+    "@types/zxcvbn": "^4.4.0"
+  },
+  "peerDependencies": {
+    "@angular/common": "^9.0.0-rc.14",
+    "@angular/core": "^9.0.0-rc.14"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^0.900.0-rc.14",
+    "@angular-devkit/build-ng-packagr": "^0.900.0-rc.14",
+    "@angular/cli": "^9.0.0-rc.14",
+    "@angular/compiler": "^9.0.0-rc.14",
+    "@angular/compiler-cli": "^9.0.0-rc.14",
+    "@angular/core": "^9.0.0-rc.14",
+    "@angular/common": "^9.0.0-rc.14",
+    "@angular/language-service": "^9.0.0-rc.14",
+    "@types/jasmine": "^3.5.3",
+    "@types/jasminewd2": "^2.0.8",
+    "@types/node": "^13.7.0",
+    "codelyzer": "^5.2.1",
+    "coveralls": "^3.0.9",
+    "jasmine-core": "^3.5.0",
+    "jasmine-spec-reporter": "^4.2.1",
+    "karma": "^4.4.1",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-coverage-istanbul-reporter": "^2.1.1",
+    "karma-jasmine": "^3.1.0",
+    "karma-jasmine-html-reporter": "^1.5.2",
+    "ng-packagr": "^5.7.1",
+    "npm-run-all": "^4.1.5",
+    "protractor": "^5.4.3",
+    "ts-node": "^8.6.2",
+    "tsickle": "^0.38.0",
+    "tslint": "^6.0.0",
+    "typescript": "^3.7.5",
+    "typescript-tslint-plugin": "^0.5.5"
+  },
+  "ngPackage": {
+    "lib": {
+      "entryFile": "src/index.ts"
+    },
+    "dest": "./dist/angular-password-strength-meter"
   },
   "keywords": [
-    "angular 8",
+    "angular 9",
     "password-strength",
     "password-strength-component",
     "password-strength-meter",
     "password-strength-meter-component",
     "angular password strength meter"
   ],
-  "dependencies": {
-    "@angular/animations": "~8.2.13",
-    "@angular/common": "~8.2.13",
-    "@angular/compiler": "~8.2.13",
-    "@angular/core": "~8.2.13",
-    "@angular/forms": "~8.2.13",
-    "@angular/platform-browser": "~8.2.13",
-    "@angular/platform-browser-dynamic": "~8.2.13",
-    "@angular/router": "~8.2.13",
-    "bootstrap": "^4.3.1",
-    "rxjs": "~6.4.0",
-    "tslib": "^1.10.0",
-    "zone.js": "~0.9.1",
-    "zxcvbn": "^4.4.2"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "~0.803.18",
-    "@angular-devkit/build-ng-packagr": "~0.803.18",
-    "@angular/cli": "~8.3.18",
-    "@angular/compiler-cli": "~8.2.13",
-    "@angular/language-service": "~8.2.13",
-    "@types/jasmine": "~3.3.8",
-    "@types/jasminewd2": "~2.0.3",
-    "@types/node": "~8.9.4",
-    "codelyzer": "^5.0.0",
-    "coveralls": "^3.0.9",
-    "jasmine-core": "~3.4.0",
-    "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~4.1.0",
-    "karma-chrome-launcher": "~2.2.0",
-    "karma-coverage-istanbul-reporter": "~2.0.1",
-    "karma-jasmine": "~2.0.1",
-    "karma-jasmine-html-reporter": "^1.4.0",
-    "ng-packagr": "^5.4.0",
-    "npm-run-all": "^4.1.5",
-    "protractor": "~5.4.0",
-    "ts-node": "~7.0.0",
-    "tsickle": "^0.37.0",
-    "tslint": "~5.15.0",
-    "typescript": "~3.5.3",
-    "typescript-tslint-plugin": "^0.5.4"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/antoantonyk/password-strength-meter.git"
+    "url": "https://github.com/moukail/password-strength-meter.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/antoantonyk/password-strength-meter/issues"
+    "url": "https://github.com/moukail/password-strength-meter/issues"
   },
-  "homepage": "https://github.com/antoantonyk/password-strength-meter"
+  "homepage": "https://github.com/moukail/password-strength-meter"
 }

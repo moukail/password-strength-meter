@@ -4,7 +4,8 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
-    "declaration": false,
+    "declaration": true,
+    "inlineSources": true,
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "module": "esnext",
@@ -18,12 +19,13 @@
       "es2018",
       "dom"
     ],
+    "types": [],
     "paths": {
       "angular-password-strength-meter": [
-        "dist/password-strength-meter"
+        "dist/angular-password-strength-meter"
       ],
       "angular-password-strength-meter/*": [
-        "dist/password-strength-meter/*"
+        "dist/angular-password-strength-meter/*"
       ]
     },
     "plugins": [
@@ -33,7 +35,15 @@
     ]
   },
   "angularCompilerOptions": {
+    "annotateForClosureCompiler": true,
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": true,
     "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
-  }
+    "strictInjectionParameters": true,
+    "enableResourceInlining": true
+  },
+  "exclude": [
+    "src/test.ts",
+    "**/*.spec.ts"
+  ]
 }
